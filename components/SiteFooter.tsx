@@ -8,8 +8,8 @@ export default function SiteFooter() {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <Link href="/" className="footer-brand">ومظلت</Link>
-          <p>حلول عملية وأنيقة للمظلات والسواتر والخيام والبرجولات في مدينة الرياض.</p>
+          <Link href="/" className="footer-brand">الجودة الخيام مظلات</Link>
+          <p>حلول عملية وأنيقة للمظلات والسواتر والخيام وبيوت الشعر والبرجولات في مدينة الرياض.</p>
         </div>
         <div>
           <h3>روابط سريعة</h3>
@@ -26,8 +26,8 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="container copyright">
-        <span>© {new Date().getFullYear()} ومظلت. جميع الحقوق محفوظة.</span>
-        <span>صُمم بعناية لخدمة عملائنا في الرياض</span>
+        <span>© {new Date().getFullYear()} الجودة الخيام مظلات. جميع الحقوق محفوظة.</span>
+        <span>نخدم عملاءنا في الرياض</span>
       </div>
     </footer>
   );
