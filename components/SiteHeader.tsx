@@ -21,7 +21,8 @@ function BrandLogo() {
 export default function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="container nav-wrap">\n        <LanguageSwitcher />
+      <div className="container nav-wrap">
+        <LanguageSwitcher />
         <Link href="/" className="brand" aria-label="الجودة الخيام مظلات - الرئيسية">
           <BrandLogo />
           <span className="brand-copy"><strong>الجودة الخيام مظلات</strong></span>
