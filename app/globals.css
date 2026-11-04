@@ -763,3 +763,38 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .brand{width:164px!important;flex-basis:164px!important;min-width:164px!important;max-width:164px!important}
  .brand-logo{width:164px!important;height:62px!important}
 }
+
+
+/* Desktop hero: dedicate separate, non-overlapping columns to image and copy */
+@media(min-width:681px){
+ .hero{position:relative!important;display:block!important;min-height:540px!important;overflow:hidden!important}
+ .hero-image{
+  position:absolute!important;top:0!important;bottom:0!important;left:0!important;right:auto!important;
+  width:52%!important;height:100%!important;opacity:1!important;
+  background-size:cover!important;background-position:center center!important;
+ }
+ .hero-image:before,.hero-image:after{display:none!important;content:none!important}
+ .hero-content{
+  position:relative!important;z-index:2!important;
+  width:min(1240px,calc(100% - 64px))!important;max-width:1240px!important;
+  min-height:540px!important;height:100%!important;
+  margin-inline:auto!important;padding:48px 0!important;
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+ }
+ .hero-copy{
+  position:relative!important;z-index:3!important;
+  flex:0 0 43%!important;width:43%!important;max-width:540px!important;
+  margin:0!important;padding:22px 0!important;background:#fff!important;
+  box-sizing:border-box!important;
+ }
+ html[dir="rtl"] .hero-copy{text-align:right!important}
+ html[dir="ltr"] .hero-copy{text-align:left!important}
+ .hero-slide-arrow,.hero-slide-dots{z-index:5!important}
+}
+@media(min-width:681px) and (max-width:900px){
+ .hero{min-height:500px!important}
+ .hero-content{min-height:500px!important;width:calc(100% - 40px)!important}
+ .hero-image{width:50%!important}
+ .hero-copy{flex-basis:46%!important;width:46%!important}
+ .hero h1{font-size:clamp(30px,4vw,42px)!important}
+}
