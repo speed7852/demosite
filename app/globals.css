@@ -427,3 +427,8 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .hero-image{pointer-events:auto}
  .hero-slide-arrow,.hero-slide-dots,.hero-slide-dots button{pointer-events:auto}
 }
+
+
+/* Clear WhatsApp brand mark in the desktop header contact button */
+.header-whatsapp{gap:9px}
+.header-whatsapp .whatsapp-brand-mark{width:22px;height:22px;display:block;flex:0 0 22px}
