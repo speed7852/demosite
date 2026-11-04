@@ -5,6 +5,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 type Language = "ar" | "en";
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void }>({ language: "ar", setLanguage: () => {} });
 
+// Keep the original Arabic strings across language changes so switching back restores them.
+const originalTextNodes = new WeakMap<Text, string>();
+const originalAttributes = new WeakMap<Element, Record<string, string>>();
+
 const translations: Record<string, string> = {
   "الرئيسية":"Home","خدماتنا":"Our Services","أعمالنا":"Our Work","من نحن":"About Us","تواصل معنا":"Contact Us",
   "تواصل عبر واتساب":"WhatsApp Us","الرياض":"Riyadh","اطلب عرض سعر":"Request a Quote","شاهد أعمالنا":"View Our Work",
@@ -44,15 +48,13 @@ const translations: Record<string, string> = {
 
 function LanguageEffects({ language }: { language: Language }) {
   useEffect(() => {
-    const originals = new WeakMap<Text, string>();
-    const attrOriginals = new WeakMap<Element, Record<string, string>>();
     const translate = () => {
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
       let node: Node | null;
       while ((node = walker.nextNode())) {
         const textNode = node as Text;
-        if (!originals.has(textNode)) originals.set(textNode, textNode.nodeValue || "");
-        const original = originals.get(textNode) || "";
+        if (!originalTextNodes.has(textNode)) originalTextNodes.set(textNode, textNode.nodeValue || "");
+        const original = originalTextNodes.get(textNode) || "";
         const trimmed = original.trim();
         if (!trimmed) continue;
         const translated = language === "en" ? translations[trimmed] : trimmed;
@@ -62,7 +64,7 @@ function LanguageEffects({ language }: { language: Language }) {
       }
       document.querySelectorAll<HTMLElement>("[aria-label],[alt],[title]").forEach(element => {
         const attrs = ["aria-label","alt","title"];
-        const saved = attrOriginals.get(element) || {};
+        const saved = originalAttributes.get(element) || {};
         attrs.forEach(attr => {
           const value = element.getAttribute(attr);
           if (value && saved[attr] === undefined) saved[attr] = value;
@@ -73,7 +75,7 @@ function LanguageEffects({ language }: { language: Language }) {
             else if (language === "ar" && value !== original) element.setAttribute(attr, original);
           }
         });
-        attrOriginals.set(element, saved);
+        originalAttributes.set(element, saved);
       });
     };
     translate();
