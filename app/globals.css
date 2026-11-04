@@ -423,3 +423,95 @@ body,main{background:#fffdf8!important;color:#4b3928!important}
  .hero{background:linear-gradient(180deg,#fffdf8,#f8f1e5)!important}
  .hero-content{background:transparent!important}
 }
+
+
+/* Readability and richer warm-luxury surfaces */
+body{
+ font-size:16px!important;
+ line-height:1.75;
+ background:#fdfaf4!important;
+}
+.container{max-width:1240px}
+.section{padding-block:100px}
+.section-heading h2,.about-copy h2,.contact-grid h2{
+ font-size:clamp(36px,4vw,48px)!important;
+ line-height:1.4;
+}
+.section-heading>p,.about-copy>p,.contact-grid>div>p{
+ font-size:16px!important;line-height:2!important;color:#665744!important;
+}
+.hero{min-height:560px!important;background:
+ radial-gradient(ellipse at 88% 12%,rgba(224,198,150,.24),transparent 34%),
+ linear-gradient(115deg,#fffdf8 0%,#f5ecdc 100%)!important;
+}
+.hero h1{font-size:clamp(46px,5vw,68px)!important;line-height:1.3!important}
+.hero-lead{font-size:18px!important;line-height:2!important;max-width:560px}
+.hero .eyebrow{font-size:15px!important}
+.hero-location{font-size:14px!important}
+.button{font-size:15px!important;padding:15px 25px}
+.trust-strip{background:linear-gradient(120deg,#fffefa,#f8f0e2)!important}
+.trust-items{padding-block:24px!important}
+.trust-items b{font-size:15px!important}
+.trust-items small{font-size:13px!important}
+.service-grid{gap:22px}
+.service-photo{height:220px}
+.service-copy{padding:20px 19px 22px!important}
+.service-copy h3{font-size:20px!important}
+.service-copy p{font-size:14px!important;line-height:1.9!important;min-height:0!important}
+.service-copy a{font-size:14px!important}
+.about-section{background:
+ radial-gradient(ellipse at 8% 20%,rgba(216,187,135,.18),transparent 36%),
+ linear-gradient(120deg,#fbf6ec,#f3e8d5)!important}
+.about-main-image{box-shadow:0 22px 55px rgba(89,65,35,.16)!important}
+.about-copy li{font-size:15px!important}
+.projects-section{background:#fffdf8!important}
+.project-grid{gap:18px}
+.project-photo{height:190px}
+.project-meta{padding:15px 16px!important}
+.project-meta span{font-size:12px!important}
+.project-meta h3{font-size:15px!important}
+.cta-section{background:
+ radial-gradient(ellipse at 90% 10%,rgba(214,178,111,.2),transparent 35%),
+ linear-gradient(115deg,#f8f0e2,#fffaf1)!important}
+.cta-inner h2{font-size:36px!important}
+.cta-inner p{font-size:15px!important}
+.contact-section{background:#fcf8f0!important}
+.contact-card{padding:34px!important;box-shadow:0 18px 45px rgba(89,65,35,.09)!important}
+.contact-card small{font-size:13px!important}
+.contact-card b{font-size:16px!important}
+.footer{background:linear-gradient(145deg,#f5eddf,#eee2cf)!important}
+.footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:14px!important;line-height:1.9}
+.footer h3{font-size:17px!important}
+.copyright{font-size:12px!important}
+@media(max-width:680px){
+ .section{padding-block:68px!important}
+ .section-heading h2,.about-copy h2,.contact-grid h2{font-size:32px!important}
+ .section-heading>p,.about-copy>p,.contact-grid>div>p{font-size:14px!important;line-height:1.95!important}
+ .hero{min-height:0!important;background:linear-gradient(180deg,#fffdf8,#f5ecdc)!important}
+ .hero-image{height:250px!important}
+ .hero-content{padding:32px 20px 40px!important}
+ .hero h1{font-size:38px!important;line-height:1.35!important}
+ .hero-lead{font-size:15px!important;line-height:1.95!important}
+ .hero .eyebrow{font-size:13px!important}
+ .hero-location{font-size:12px!important}
+ .hero .button{font-size:13px!important;padding:13px 10px!important}
+ .trust-items{padding:14px 9px!important}
+ .trust-items b{font-size:12px!important}
+ .trust-items small{font-size:10.5px!important}
+ .service-grid{gap:13px!important}
+ .service-photo{height:145px!important}
+ .service-copy{padding:13px 11px 15px!important}
+ .service-copy h3{font-size:15px!important}
+ .service-copy p{font-size:12px!important;line-height:1.8!important}
+ .service-copy a{font-size:11px!important}
+ .project-photo{height:140px!important}
+ .project-meta{padding:11px!important}
+ .project-meta span{font-size:10px!important}
+ .project-meta h3{font-size:12px!important}
+ .cta-inner h2{font-size:27px!important}
+ .cta-inner p{font-size:13px!important}
+ .contact-card{padding:20px!important}
+ .contact-card small{font-size:11px!important}
+ .contact-card b{font-size:14px!important}
+ .footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:12px!important}
+}
