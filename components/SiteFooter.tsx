@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, MessageCircle } from "lucide-react";
 
 const whatsapp = "https://wa.me/966531555682";
@@ -8,7 +9,7 @@ export default function SiteFooter() {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <Link href="/" className="footer-brand">الجودة الخيام مظلات</Link>
+          <Link href="/" className="footer-brand" aria-label="الجودة الخيام مظلات"><Image src="/al-jawdah-logo.svg" alt="الجودة الخيام مظلات" width={1000} height={330} /></Link>
           <p>حلول عملية وأنيقة للمظلات والسواتر والخيام وبيوت الشعر والبرجولات في مدينة الرياض.</p>
         </div>
         <div>
