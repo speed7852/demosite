@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Menu, Phone, MessageCircle, MapPin } from "lucide-react";
+import { LanguageSwitcher } from "@/components/LanguageProvider";
 
 const phone = "tel:+966531555682";
 const whatsapp = "https://wa.me/966531555682";
@@ -20,7 +21,7 @@ function BrandLogo() {
 export default function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="container nav-wrap">
+      <div className="container nav-wrap">\n        <LanguageSwitcher />
         <Link href="/" className="brand" aria-label="الجودة الخيام مظلات - الرئيسية">
           <BrandLogo />
           <span className="brand-copy"><strong>الجودة الخيام مظلات</strong></span>
