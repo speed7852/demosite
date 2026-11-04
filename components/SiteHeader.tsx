@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, Phone, MapPin } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageProvider";
 
@@ -18,12 +19,7 @@ function WhatsAppMark() {
 function BrandLogo() {
   return (
     <span className="brand-logo" aria-hidden="true">
-      <svg viewBox="0 0 240 78" role="img" aria-label="شعار الجودة الخيام مظلات">
-        <path d="M8 61 C47 45 94 22 143 5 L157 12 C121 34 87 51 57 61 Z" fill="#D6A238" />
-        <path d="M151 5 C178 22 207 43 232 60 L202 60 C183 45 162 27 143 12 Z" fill="#102F5B" />
-        <path d="M20 62 C63 49 104 30 145 10" fill="none" stroke="#E8C77F" strokeWidth="1.6" opacity=".85" />
-        <path d="M151 10 C177 28 202 46 224 59" fill="none" stroke="#7890AC" strokeWidth="1.5" opacity=".65" />
-      </svg>
+      <Image src="/al-jawdah-logo.svg" alt="الجودة الخيام مظلات" width={1000} height={330} priority />
     </span>
   );
 }
