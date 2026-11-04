@@ -41,6 +41,10 @@ export default function Home() {
     setActivePhoto(current => current === null ? null : (current + direction + projects.length) % projects.length);
   }, []);
   useEffect(() => {
+    const timer = window.setInterval(() => setActiveSlide(current => (current + 1) % heroSlides.length), 5000);
+    return () => window.clearInterval(timer);
+  }, []);
+  useEffect(() => {
     if (activePhoto === null) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActivePhoto(null);
@@ -128,7 +132,21 @@ export default function Home() {
             <div><div className="eyebrow dark"><span /> معرض الصور</div><h2>شاهد نماذج من <em>أعمالنا</em></h2></div>
             <p>مجموعة من الصور الأصلية للأعمال والمشاريع، لتأخذ فكرة عن الخيارات والتفاصيل المتاحة.</p>
           </div>
-          <div className="project-grid">
+          <div className="showcase-banner">
+            <div className="showcase-photos">
+              <button type="button" onClick={() => setActivePhoto(18)} aria-label="عرض المشروع"><Image src="/gallery/project-19.webp" alt="مظلة سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src="/gallery/project-10.webp" alt="سواتر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(1)} aria-label="عرض المشروع"><Image src="/gallery/project-02.webp" alt="خيمة" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(22)} aria-label="عرض المشروع"><Image src="/gallery/project-23.webp" alt="مظلة خارجية" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+            </div>
+            <div className="showcase-copy">
+              <div className="eyebrow"><span /> أعمالنا</div>
+              <h2>معرض المشاريع</h2>
+              <p>شاهد مجموعة من أعمالنا المنفذة في الرياض.</p>
+              <a className="button button-gold" href="#all-projects">عرض جميع المشاريع <ArrowLeft size={17} /></a>
+            </div>
+          </div>
+          <div id="all-projects" className="project-grid">
             {projects.map((p, i) => <article className="project-card" key={p.image}>
               <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
                 <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
