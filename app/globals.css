@@ -299,3 +299,22 @@ html,body,main,
  .showcase-banner{background:#fff!important;border:1px solid #e8edf2!important}
  .showcase-copy h2{color:#102f5b!important}
 }
+
+
+/* Desktop hero: keep every slideshow image fully visible; blend only at the edge */
+@media(min-width:681px){
+ .hero-image{width:59%;background-position:center center;background-repeat:no-repeat;background-size:cover}
+ .hero-image:before{background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 88%,rgba(255,255,255,.16) 96%,rgba(255,255,255,.42) 100%)}
+ .hero-image:after{width:2px;opacity:.7}
+}
+/* Keep Saudi phone digits in their intended left-to-right order in RTL sections */
+.phone-number{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap;text-align:left;font-variant-numeric:tabular-nums}
+.contact-card .contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-card .contact-actions .button{width:100%;min-width:0}
+.whatsapp-float{width:60px;height:60px;padding:0}
+.whatsapp-float svg{width:31px;height:31px;display:block}
+.whatsapp-float span{display:none}
+@media(max-width:680px){
+ .whatsapp-float{width:54px;height:54px;bottom:14px;left:14px}
+ .contact-card .contact-actions{grid-template-columns:1fr}
+}
