@@ -154,10 +154,10 @@ export default function Home() {
           </div>
           <div className="showcase-banner">
             <div className="showcase-photos">
-              <button type="button" onClick={() => setActivePhoto(0)} aria-label="عرض المشروع"><Image src={customerProjects[0].image} alt="مظلات سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(4)} aria-label="عرض المشروع"><Image src={customerProjects[4].image} alt="خيام وبيوت شعر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src={customerProjects[9].image} alt="برجولات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(12)} aria-label="عرض المشروع"><Image src={customerProjects[12].image} alt="أبواب وتشطيبات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => { setSelectedCategory("all"); setActivePhoto(0); }} aria-label="عرض المشروع"><Image src={customerProjects[0].image} alt="مظلات سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => { setSelectedCategory("all"); setActivePhoto(4); }} aria-label="عرض المشروع"><Image src={customerProjects[4].image} alt="خيام وبيوت شعر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => { setSelectedCategory("all"); setActivePhoto(9); }} aria-label="عرض المشروع"><Image src={customerProjects[9].image} alt="برجولات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => { setSelectedCategory("all"); setActivePhoto(12); }} aria-label="عرض المشروع"><Image src={customerProjects[12].image} alt="أبواب وتشطيبات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
             </div>
             <div className="showcase-copy">
               <div className="eyebrow"><span /> أعمالنا</div>
