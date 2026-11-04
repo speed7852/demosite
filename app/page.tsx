@@ -181,9 +181,9 @@ export default function Home() {
         <div className="container contact-grid">
           <div><div className="eyebrow dark"><span /> تواصل معنا</div><h2>يسعدنا <em>خدمتك</em></h2><p>للاستفسارات وطلبات الأسعار، تواصل معنا عبر الهاتف أو واتساب.</p></div>
           <div className="contact-card">
-            <div><span className="contact-icon"><Phone size={20} /></span><span><small>رقم التواصل</small><b dir="ltr">+966 53 155 5682</b></span></div>
+            <div><span className="contact-icon"><Phone size={20} /></span><span><small>رقم التواصل</small><b className="phone-number">+966 53 155 5682</b></span></div>
             <div><span className="contact-icon"><MapPin size={20} /></span><span><small>نطاق الخدمة</small><b>الرياض، المملكة العربية السعودية</b></span></div>
-            <a className="button button-dark" href={whatsapp}>راسلنا الآن <ArrowLeft size={18} /></a>
+            <div className="contact-actions"><a className="button button-gold" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={19} /> واتساب</a><a className="button button-dark" href="tel:+966531555682"><Phone size={19} /> اتصل الآن</a></div>
           </div>
         </div>
       </section>
