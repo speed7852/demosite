@@ -43,11 +43,11 @@ const categories = [
 ];
 
 const heroSlides = [
-  { image: "/gallery/customer/01_Car_and_Outdoor_Awnings/01-01.jpg", alt: "مظلة سيارات من أحد مشاريعنا" },
-  { image: "/gallery/project-23.webp", alt: "مظلة خارجية" },
-  { image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-01.jpg", alt: "بيت شعر من أحد مشاريعنا" },
-  { image: "/gallery/project-10.webp", alt: "سواتر خارجية" }
-];
+  { image: "/gallery/project-29.webp", alt: "مشروع مظلات من أعمالنا" },
+  { image: "/gallery/project-19.webp", alt: "مشروع مظلات من أعمالنا" },
+  { image: "/gallery/project-11.webp", alt: "مشروع مظلات من أعمالنا" },
+  { image: "/gallery/project-27.webp", alt: "مشروع مظلات من أعمالنا" }
+];;
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
