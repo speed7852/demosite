@@ -21,7 +21,7 @@ export default function SiteFooter() {
         <div>
           <h3>تواصل معنا</h3>
           <span><MapPin size={16} /> الرياض، المملكة العربية السعودية</span>
-          <a href="tel:+966531555682"><Phone size={16} /> +966 53 155 5682</a>
+          <a href="tel:+966531555682"><Phone size={16} /> <b className="phone-number">+966 53 155 5682</b></a>
           <a href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={16} /> واتساب</a>
         </div>
       </div>
