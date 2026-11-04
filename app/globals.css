@@ -603,3 +603,73 @@ a,button{overflow-wrap:anywhere}
  .service-copy p{font-size:12px!important}
  .footer-grid{grid-template-columns:1fr}
 }
+
+
+/* Match the supplied bright reference: white, deep navy typography and gold accents */
+:root{
+ --navy:#102f5b;--blue:#183f70;--gold:#d6a238;
+ --pale:#f7f9fc;--ink:#183451;--muted:#64758a;--line:#e8edf3;
+}
+body,main{background:#fff!important;color:#183451!important}
+.site-header{background:#fff!important;border-bottom:1px solid #edf0f4!important;box-shadow:0 5px 20px rgba(16,47,91,.06)!important}
+.brand{background:#fff!important;border-color:#ead8ae!important}
+.brand-copy strong{color:#102f5b!important}
+.brand-logo svg path:first-child{stroke:#d6a238!important}
+.brand-logo svg path:last-child{stroke:#102f5b!important}
+.desktop-nav,.header-phone{color:#102f5b!important}
+.hero{
+ background:linear-gradient(100deg,#fff 0%,#f7f9fc 100%)!important;
+ color:#102f5b!important;min-height:550px!important;
+}
+.hero h1{color:#102f5b!important}
+.hero h1 em{color:#d19a25!important}
+.hero .eyebrow{color:#b38425!important}
+.hero-lead,.hero-location{color:#53677f!important}
+.hero .button-gold{background:#d6a238!important;color:#102f5b!important}
+.hero .button-outline{background:#fff!important;color:#102f5b!important;border:1px solid #9aaabd!important}
+.trust-strip{background:#fff!important;border:1px solid #edf0f4!important;box-shadow:0 10px 30px rgba(16,47,91,.09)!important}
+.trust-items b{color:#102f5b!important}
+.trust-items small{color:#64758a!important}
+.services-section,.projects-section,.contact-section{background:#fff!important}
+.section-heading h2,.about-copy h2,.contact-grid h2{color:#102f5b!important}
+.section-heading>p,.about-copy>p,.contact-grid>div>p{color:#53677f!important}
+.service-card{background:#fff!important;border:1px solid #edf0f4!important;box-shadow:0 8px 22px rgba(16,47,91,.09)!important}
+.service-copy{background:#fff!important;border-top:0!important}
+.service-copy h3,.project-meta h3{color:#102f5b!important}
+.service-copy p,.project-meta span{color:#64758a!important}
+.service-copy a{color:#b38425!important}
+.service-number{background:#fff!important;color:#b38425!important;border:1px solid #e6d2a8}
+.about-section{background:#f7f9fc!important}
+.about-copy li{color:#29435f!important}
+.projects-section .project-card{background:#fff!important}
+.project-meta{background:#fff!important}
+.cta-section{
+ background:linear-gradient(110deg,#123b70,#082b55)!important;
+ color:#fff!important;border:0!important;border-radius:24px!important;
+ margin:28px auto!important;width:calc(100% - 40px);
+}
+.cta-inner h2{color:#fff!important}
+.cta-inner p{color:#e2eaf4!important}
+.cta-inner .eyebrow{color:#f0c45a!important}
+.cta-inner .button-gold{background:#e3b44e!important;color:#102f5b!important}
+.contact-section{background:#fff!important}
+.contact-card{background:#fff!important;border:1px solid #e8edf3!important;box-shadow:0 12px 32px rgba(16,47,91,.08)!important}
+.contact-icon{background:#f6f1e5!important;color:#b38425!important}
+.button-dark{background:#102f5b!important;color:#fff!important}
+.footer{background:#f5f7fa!important;color:#102f5b!important;border-top:1px solid #e8edf3!important}
+.footer-brand,.footer h3{color:#102f5b!important}
+.footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{color:#53677f!important}
+.footer-grid svg{color:#b38425!important}
+.copyright{border-color:#e1e7ef!important;color:#6f8094!important}
+@media(max-width:680px){
+ .hero{background:#fff!important;min-height:0!important}
+ .hero-image{filter:none!important;height:245px!important}
+ .hero-content{background:#fff!important;padding:28px 20px 38px!important}
+ .hero h1{font-size:36px!important;color:#102f5b!important}
+ .hero-lead{font-size:16px!important;color:#53677f!important}
+ .hero .button-outline{background:#fff!important;color:#102f5b!important}
+ .trust-strip{background:#fff!important}
+ .about-section{background:#f7f9fc!important}
+ .cta-section{width:calc(100% - 24px)!important;margin:18px auto!important;border-radius:18px!important}
+ .footer{background:#f5f7fa!important}
+}
