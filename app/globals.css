@@ -1091,3 +1091,64 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .hero h1{font-size:clamp(32px,3.2vw,40px)!important}
  .hero-lead{font-size:14px!important}
 }
+
+
+/* English desktop hero: give the slideshow a full-width right-hand panel */
+@media(min-width:681px){
+ html[dir="ltr"] .hero{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  height:600px!important;
+  min-height:600px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+ }
+ html[dir="ltr"] .hero > .hero-image{
+  display:block!important;
+  position:absolute!important;
+  top:0!important;right:0!important;bottom:0!important;left:auto!important;
+  width:60%!important;max-width:none!important;min-width:0!important;
+  height:600px!important;min-height:600px!important;
+  margin:0!important;padding:0!important;
+  opacity:1!important;visibility:visible!important;
+  background-size:cover!important;background-position:center center!important;
+  background-repeat:no-repeat!important;
+  z-index:1!important;
+ }
+ html[dir="ltr"] .hero > .hero-image:before,
+ html[dir="ltr"] .hero > .hero-image:after{display:none!important;content:none!important}
+ html[dir="ltr"] .hero > .hero-content{
+  display:block!important;
+  position:absolute!important;inset:0!important;
+  width:100%!important;max-width:none!important;
+  height:600px!important;min-height:600px!important;
+  margin:0!important;padding:0!important;
+  background:transparent!important;
+  z-index:2!important;pointer-events:none!important;
+ }
+ html[dir="ltr"] .hero .hero-copy{
+  display:block!important;
+  position:absolute!important;
+  top:50%!important;left:5%!important;right:auto!important;
+  transform:translateY(-50%)!important;
+  width:32%!important;max-width:520px!important;min-width:0!important;
+  margin:0!important;padding:0!important;
+  background:#fff!important;
+  text-align:left!important;
+  pointer-events:auto!important;
+ }
+ html[dir="ltr"] .hero h1{
+  font-size:clamp(38px,3.3vw,52px)!important;
+  line-height:1.18!important;
+  overflow-wrap:normal!important;
+ }
+ html[dir="ltr"] .hero .hero-slide-arrow,
+ html[dir="ltr"] .hero .hero-slide-dots{z-index:6!important;pointer-events:auto!important}
+}
+@media(min-width:681px) and (max-width:1000px){
+ html[dir="ltr"] .hero,
+ html[dir="ltr"] .hero > .hero-image,
+ html[dir="ltr"] .hero > .hero-content{height:560px!important;min-height:560px!important}
+ html[dir="ltr"] .hero .hero-copy{width:35%!important;left:3%!important}
+}
