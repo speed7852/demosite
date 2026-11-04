@@ -129,7 +129,7 @@ export default function Home() {
             <p>مجموعة من الصور الأصلية للأعمال والمشاريع، لتأخذ فكرة عن الخيارات والتفاصيل المتاحة.</p>
           </div>
           <div className="project-grid">
-            {projects.map((p) => <article className="project-card" key={p.image}>
+            {projects.map((p, i) => <article className="project-card" key={p.image}>
               <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
                 <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
               </button>
