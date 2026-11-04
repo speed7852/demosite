@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import {
   ArrowLeft, ArrowUpLeft, CheckCircle2, Clock3, MapPin,
-  MessageCircle, ShieldCheck, Sparkles, Wrench, Phone, Star, ChevronLeft, ChevronRight, X
+  MessageCircle, ShieldCheck, Sparkles, Wrench, Phone, ChevronLeft, ChevronRight, X
 } from "lucide-react";
 
 const whatsapp = "https://wa.me/966531555682?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1.";
@@ -76,7 +76,6 @@ export default function Home() {
             <div className="hero-location"><MapPin size={16} /> الرياض، المملكة العربية السعودية</div>
           </div>
         </div>
-        <div className="hero-note"><span>01</span><span className="note-line" /><span>حلول خارجية متكاملة</span></div>
       </section>
 
       <section className="trust-strip">
@@ -130,7 +129,7 @@ export default function Home() {
             <p>مجموعة من الصور الأصلية للأعمال والمشاريع، لتأخذ فكرة عن الخيارات والتفاصيل المتاحة.</p>
           </div>
           <div className="project-grid">
-            {projects.map((p, i) => <article className="project-card" key={p.image}>
+            {projects.map((p) => <article className="project-card" key={p.image}>
               <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
                 <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
               </button>
