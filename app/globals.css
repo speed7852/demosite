@@ -323,3 +323,49 @@ a{color:inherit;text-decoration:none}
  .brand-copy strong{font-size:14px;white-space:nowrap}
  .mobile-menu{position:absolute;left:0;top:50%;transform:translateY(-50%)}
 }
+
+
+/* Final approved light premium visual system — remove dark section panels */
+:root{
+ --navy:#173b67;--blue:#4776a5;--gold:#d5a02f;
+ --pale:#f3f7fc;--ink:#233e5c;--muted:#6b7f96;
+}
+body,main{background:#fff!important;color:#233e5c}
+.hero{
+ background:linear-gradient(115deg,#f8fbff 0%,#edf4fb 100%)!important;
+ color:#173b67!important;
+}
+.hero-content,.hero-copy{background:transparent!important}
+.hero h1{color:#173b67!important}
+.hero h1 em{color:#bd8b24!important}
+.hero .eyebrow{color:#9b741e!important}
+.hero-lead,.hero-location{color:#5e748d!important}
+.hero .button-outline{background:#fff!important;color:#173b67!important;border-color:#cbd8e6!important}
+.hero .button-gold{background:linear-gradient(120deg,#f1cf72,#d5a02f)!important;color:#173b67!important}
+.trust-strip{background:#fff!important}
+.services-section,.projects-section,.contact-section{background:#fff!important}
+.service-card,.project-card{background:#fff!important}
+.service-copy{background:linear-gradient(180deg,#fff,#f4f8fd)!important;color:#173b67!important;border-top:3px solid #d5a02f!important}
+.service-copy h3,.project-meta h3{color:#173b67!important}
+.service-copy p{color:#687d95!important}
+.service-copy a{color:#a87916!important}
+.service-number{background:#f0d17d!important;color:#173b67!important}
+.about-section{background:linear-gradient(120deg,#f5f9fe,#edf4fb)!important}
+.cta-section{
+ background:linear-gradient(115deg,#f5f9fe,#eaf2fb)!important;
+ color:#173b67!important;border-block:1px solid #e0e9f3!important;
+}
+.cta-inner h2{color:#173b67!important}
+.cta-inner p{color:#617790!important}
+.cta-inner .eyebrow{color:#9b741e!important}
+.footer{background:#f5f8fc!important;color:#173b67!important;border-top:1px solid #e0e9f3!important}
+.footer-brand,.footer h3{color:#173b67!important}
+.footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{color:#627891!important}
+.footer-grid svg{color:#bd8b24!important}
+.copyright{border-color:#dce6f1!important;color:#75879b!important}
+.button-dark{background:#173b67!important;color:#fff!important}
+@media(max-width:680px){
+ .hero{background:linear-gradient(180deg,#f8fbff,#edf4fb)!important}
+ .hero-image{background-position:center 52%}
+ .hero-content{background:transparent!important}
+}
