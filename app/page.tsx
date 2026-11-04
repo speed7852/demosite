@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 import {
   ArrowLeft, ArrowUpLeft, CheckCircle2, Clock3, MapPin,
-  MessageCircle, ShieldCheck, Sparkles, Wrench, Phone, Star
+  MessageCircle, ShieldCheck, Sparkles, Wrench, Phone, Star, ChevronLeft, ChevronRight, X
 } from "lucide-react";
 
 const whatsapp = "https://wa.me/966531555682?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1.";
@@ -21,12 +24,45 @@ const labels = [
 ];
 const projects = labels.map((title, i) => ({title, image: `/gallery/project-${String(i + 1).padStart(2, "0")}.webp`}));
 
+const heroSlides = [
+  { image: "/gallery/project-19.webp", alt: "مظلة سيارات بتصميم أنيق" },
+  { image: "/gallery/project-23.webp", alt: "مظلة خارجية" },
+  { image: "/gallery/project-02.webp", alt: "خيمة وبيت شعر" },
+  { image: "/gallery/project-10.webp", alt: "سواتر خارجية" }
+];
+
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
+  const moveSlide = useCallback((direction: number) => {
+    setActiveSlide(current => (current + direction + heroSlides.length) % heroSlides.length);
+  }, []);
+  const movePhoto = useCallback((direction: number) => {
+    setActivePhoto(current => current === null ? null : (current + direction + projects.length) % projects.length);
+  }, []);
+  useEffect(() => {
+    if (activePhoto === null) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActivePhoto(null);
+      if (event.key === "ArrowLeft") movePhoto(1);
+      if (event.key === "ArrowRight") movePhoto(-1);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [activePhoto, movePhoto]);
   return (
     <main>
       <section className="hero" aria-label="مقدمة الموقع">
-        <div className="hero-image">
-          <div className="hero-image-caption"><span>من أعمالنا</span><b>تصاميم تجمع الجودة والجمال</b></div>
+        <div className="hero-image" style={{ backgroundImage: 'url("' + heroSlides[activeSlide].image + '")' }} role="img" aria-label={heroSlides[activeSlide].alt}>
+          <button className="hero-slide-arrow hero-slide-prev" onClick={() => moveSlide(-1)} aria-label="الصورة السابقة"><ChevronRight /></button>
+          <button className="hero-slide-arrow hero-slide-next" onClick={() => moveSlide(1)} aria-label="الصورة التالية"><ChevronLeft /></button>
+          <div className="hero-slide-dots" aria-label="اختيار صورة">
+            {heroSlides.map((slide, index) => <button key={slide.image} className={index === activeSlide ? "active" : ""} onClick={() => setActiveSlide(index)} aria-label={'عرض الصورة ' + (index + 1)} />)}
+          </div>
         </div>
         <div className="container hero-content">
           <div className="hero-copy">
@@ -60,7 +96,7 @@ export default function Home() {
           </div>
           <div className="service-grid">
             {services.map(s => <article className="service-card" key={s.number}>
-              <div className="service-photo"><Image src={s.image} alt={s.alt} fill sizes="(max-width: 700px) 100vw, 25vw" /><span className="service-number">{s.number}</span></div>
+              <div className="service-photo"><Image src={s.image} alt={s.alt} fill sizes="(max-width: 700px) 100vw, 25vw" /></div>
               <div className="service-copy"><h3>{s.title}</h3><p>{s.description}</p><a href={whatsapp}>اطلب الخدمة <ArrowUpLeft size={16} /></a></div>
             </article>)}
           </div>
@@ -95,13 +131,27 @@ export default function Home() {
           </div>
           <div className="project-grid">
             {projects.map((p, i) => <article className="project-card" key={p.image}>
-              <div className="project-photo"><Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" /></div>
-              <div className="project-meta"><span>{String(i + 1).padStart(2, "0")} · من أعمالنا</span><h3>{p.title}</h3></div>
+              <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
+                <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
+              </button>
+              <div className="project-meta"><h3>{p.title}</h3></div>
             </article>)}
           </div>
-          <p className="gallery-disclaimer">جميع الصور المعروضة من معرض الأعمال الأصلي.</p>
+          <p className="gallery-disclaimer">اضغط على أي صورة لعرضها والتنقل بين الصور.</p>
         </div>
       </section>
+
+      {activePhoto !== null && (
+        <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="معرض الصور" onClick={() => setActivePhoto(null)}>
+          <button className="gallery-close" onClick={() => setActivePhoto(null)} aria-label="إغلاق المعرض"><X /></button>
+          <button className="gallery-arrow gallery-arrow-prev" onClick={event => { event.stopPropagation(); movePhoto(1); }} aria-label="الصورة السابقة"><ChevronRight /></button>
+          <div className="gallery-view" onClick={event => event.stopPropagation()}>
+            <div className="gallery-large-image"><Image src={projects[activePhoto].image} alt={projects[activePhoto].title} fill sizes="100vw" priority /></div>
+            <div className="gallery-caption">{projects[activePhoto].title} <span>{activePhoto + 1} / {projects.length}</span></div>
+          </div>
+          <button className="gallery-arrow gallery-arrow-next" onClick={event => { event.stopPropagation(); movePhoto(-1); }} aria-label="الصورة التالية"><ChevronLeft /></button>
+        </div>
+      )}
 
       <section className="cta-section">
         <div className="container cta-inner">
