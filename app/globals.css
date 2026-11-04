@@ -552,3 +552,54 @@ p{font-size:16px}
  .footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:13px!important}
  .copyright{font-size:11px!important}
 }
+
+
+/* Responsive quality safeguards for phones, tablets and desktop */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg{max-width:100%}
+.container{width:min(1240px,calc(100% - 40px))}
+.service-card,.project-card,.contact-card,.about-grid>*{min-width:0}
+.hero-copy,.hero-content,.section-heading,.service-copy,.project-meta{min-width:0}
+a,button{overflow-wrap:anywhere}
+@media(min-width:681px) and (max-width:1024px){
+ .container{width:calc(100% - 40px)}
+ .nav-wrap{gap:10px}
+ .brand{min-width:145px}
+ .desktop-nav{gap:10px;font-size:12px}
+ .header-contact{gap:8px}
+ .header-city{display:none}
+ .hero{min-height:490px}
+ .hero-copy{width:45%}
+ .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .about-grid,.contact-grid{gap:32px}
+}
+@media(max-width:680px){
+ .container{width:calc(100% - 32px)}
+ .site-header{width:100%}
+ .nav-wrap{width:calc(100% - 20px)}
+ .hero-image{width:100%;max-width:100%}
+ .hero-actions{display:grid;grid-template-columns:1fr 1fr}
+ .hero .button{min-width:0;white-space:normal;text-align:center}
+ .trust-items>div{min-width:0}
+ .service-grid,.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .service-card,.project-card{min-width:0}
+ .service-photo,.project-photo{height:auto;aspect-ratio:1.35}
+ .service-copy p{min-height:0}
+ .about-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
+ .about-main-image{height:auto;aspect-ratio:1.15}
+ .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}
+ .contact-card{min-width:0}
+ .contact-card b{overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+ .container{width:calc(100% - 26px)}
+ .brand-copy strong{font-size:13px}
+ .hero h1{font-size:34px!important}
+ .hero-actions{grid-template-columns:1fr}
+ .service-grid,.project-grid{gap:9px}
+ .service-copy{padding:11px 9px!important}
+ .service-copy h3{font-size:14px!important}
+ .service-copy p{font-size:12px!important}
+ .footer-grid{grid-template-columns:1fr}
+}
