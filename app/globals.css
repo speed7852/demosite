@@ -728,3 +728,21 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .hero-content,.hero-copy{background:#fff!important}
  html[dir="ltr"] .hero-image:before,html[dir="ltr"] .hero-image:after{display:none!important;content:none!important}
 }
+
+
+/* Official site logo asset: full tent mark and Arabic wordmark */
+.brand{min-width:0!important;width:190px!important;flex:0 0 190px!important;gap:0!important}
+.brand-logo{display:block!important;width:190px!important;height:63px!important}
+.brand-logo img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+.brand-copy{display:none!important}
+.footer-brand{display:block!important;width:230px!important;max-width:100%!important;font-size:0!important;line-height:0!important}
+.footer-brand img{display:block!important;width:100%!important;height:auto!important;object-fit:contain}
+@media(max-width:1050px) and (min-width:681px){
+ .brand{width:155px!important;flex-basis:155px!important}
+ .brand-logo{width:155px!important;height:50px!important}
+}
+@media(max-width:680px){
+ .brand{width:132px!important;flex:0 0 132px!important;max-width:calc(100% - 105px)!important}
+ .brand-logo{width:132px!important;height:44px!important}
+ .footer-brand{width:190px!important}
+}
