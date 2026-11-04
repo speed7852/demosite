@@ -1,16 +1,11 @@
-import { MessageCircle } from "lucide-react";
+const whatsapp = "https://wa.me/966531555682?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.";
 
 export default function WhatsAppFloat() {
   return (
-    <a
-      className="whatsapp-float"
-      href="https://wa.me/966531555682?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85."
-      target="_blank"
-      rel="noreferrer"
-      aria-label="تواصل معنا عبر واتساب"
-    >
-      <MessageCircle size={22} />
-      <span>تواصل واتساب</span>
+    <a className="whatsapp-float" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M16 3.2A12.5 12.5 0 0 0 5.25 22.1L3.6 28.3l6.35-1.66A12.5 12.5 0 1 0 16 3.2Zm0 22.7c-1.9 0-3.75-.5-5.36-1.46l-.38-.23-3.77.99 1.01-3.67-.25-.39A10.1 10.1 0 1 1 16 25.9Zm5.55-7.56c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z"/>
+      </svg>
     </a>
   );
 }
