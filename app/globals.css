@@ -369,3 +369,57 @@ body,main{background:#fff!important;color:#233e5c}
  .hero-image{background-position:center 52%}
  .hero-content{background:transparent!important}
 }
+
+
+/* Warm-white luxury palette — no blue background panels */
+:root{
+ --navy:#4b3928;--blue:#8b7358;--gold:#b88a3b;
+ --pale:#fbf7ef;--ink:#4b3928;--muted:#817463;
+ --line:#eee5d7;
+}
+body,main{background:#fffdf8!important;color:#4b3928!important}
+.site-header{background:rgba(255,253,248,.97)!important;border-bottom:1px solid #eee5d7!important}
+.brand{background:linear-gradient(145deg,#fffefa,#fbf6ec)!important;border-color:#eadcc3!important}
+.brand-copy strong{color:#4b3928!important}
+.brand-logo svg path:first-child{stroke:#b88a3b!important}
+.brand-logo svg path:last-child{stroke:#4b3928!important}
+.desktop-nav,.header-phone{color:#4b3928!important}
+.header-phone svg,.header-city svg{color:#b88a3b!important}
+.hero{background:linear-gradient(115deg,#fffdf8 0%,#f8f1e5 100%)!important;color:#4b3928!important}
+.hero h1{color:#4b3928!important}
+.hero h1 em{color:#b88a3b!important}
+.hero .eyebrow,.section-heading .eyebrow,.about-copy .eyebrow,.contact-grid .eyebrow{color:#a77a32!important}
+.hero-lead,.hero-location{color:#776957!important}
+.hero .button-gold{background:linear-gradient(120deg,#e5c98c,#b88a3b)!important;color:#392b1e!important}
+.hero .button-outline{background:#fffefa!important;color:#4b3928!important;border-color:#dfd1ba!important}
+.trust-strip{background:#fffefa!important;border-color:#eee5d7!important}
+.trust-items>div{border-color:#eee5d7!important}
+.trust-items b{color:#4b3928!important}
+.trust-items small{color:#817463!important}
+.services-section,.projects-section,.contact-section{background:#fffdf8!important}
+.service-card,.project-card{background:#fffefa!important;border-color:#eee5d7!important}
+.service-copy{background:linear-gradient(180deg,#fffefa,#f8f2e8)!important;border-top:3px solid #b88a3b!important}
+.service-copy h3,.project-meta h3{color:#4b3928!important}
+.service-copy p,.project-meta span{color:#817463!important}
+.service-copy a{color:#a77a32!important}
+.service-number{background:#ead7ad!important;color:#4b3928!important}
+.about-section{background:linear-gradient(120deg,#fbf7ef,#f5eddf)!important}
+.about-copy h2,.section-heading h2,.contact-grid h2{color:#4b3928!important}
+.about-copy>p,.contact-grid>div>p{color:#776957!important}
+.about-copy li{color:#5e4d3a!important}
+.cta-section{background:linear-gradient(115deg,#fbf7ef,#f4ead9)!important;color:#4b3928!important;border-block:1px solid #eee5d7!important}
+.cta-inner h2{color:#4b3928!important}
+.cta-inner p{color:#776957!important}
+.cta-inner .eyebrow{color:#a77a32!important}
+.footer{background:#f8f3e9!important;color:#4b3928!important;border-top:1px solid #eee5d7!important}
+.footer-brand,.footer h3{color:#4b3928!important}
+.footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{color:#776957!important}
+.footer-grid svg{color:#b88a3b!important}
+.copyright{border-color:#e9dfcf!important;color:#887b69!important}
+.button-dark{background:#4b3928!important;color:#fffefa!important}
+.contact-card{background:#fffefa!important;border-color:#eee5d7!important}
+.contact-icon{background:#f5eddf!important;color:#a77a32!important}
+@media(max-width:680px){
+ .hero{background:linear-gradient(180deg,#fffdf8,#f8f1e5)!important}
+ .hero-content{background:transparent!important}
+}
