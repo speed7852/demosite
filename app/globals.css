@@ -746,3 +746,20 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .brand-logo{width:132px!important;height:44px!important}
  .footer-brand{width:190px!important}
 }
+
+
+/* Mobile brand clarity: reserve a larger, unclipped logo area */
+@media(max-width:680px){
+ .nav-wrap{min-height:88px!important;align-items:center!important;gap:10px!important}
+ .brand{width:184px!important;flex:0 0 184px!important;max-width:184px!important;min-width:184px!important}
+ .brand-logo{width:184px!important;height:68px!important}
+ .brand-logo img{width:100%!important;height:100%!important;object-fit:contain!important}
+ .language-switcher{flex:0 0 auto!important}
+ .mobile-menu{flex:0 0 28px!important}
+ .mobile-menu summary{padding:2px!important}
+}
+@media(max-width:370px){
+ .nav-wrap{gap:6px!important;width:calc(100% - 16px)!important}
+ .brand{width:164px!important;flex-basis:164px!important;min-width:164px!important;max-width:164px!important}
+ .brand-logo{width:164px!important;height:62px!important}
+}
