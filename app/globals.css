@@ -341,3 +341,24 @@ html,body,main,
  .language-switcher{order:3;margin:0;font-size:11px;padding:4px 7px;gap:5px}
  .mobile-menu{order:2;margin:0 auto 0 0}
 }
+
+
+/* English hero: keep copy on the left and the slideshow on the right */
+html[dir="ltr"] .hero-image{left:auto;right:0;width:57%}
+html[dir="ltr"] .hero-image:before{background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,0) 38%)}
+html[dir="ltr"] .hero-image:after{right:auto;left:0}
+html[dir="ltr"] .hero-content{justify-content:flex-start}
+html[dir="ltr"] .hero-copy{width:39%;max-width:500px;margin:0;text-align:left}
+html[dir="ltr"] .hero h1{font-size:clamp(38px,4vw,56px);line-height:1.18;letter-spacing:-.5px}
+html[dir="ltr"] .hero-lead{font-size:16px;line-height:1.75}
+html[dir="ltr"] .hero-actions{justify-content:flex-start}
+html[dir="ltr"] .hero-location{justify-content:flex-start}
+@media(max-width:680px){
+ html[dir="ltr"] .hero-image{left:auto;right:auto;width:100%}
+ html[dir="ltr"] .hero-image:before{background:linear-gradient(0deg,transparent 78%,rgba(255,255,255,.04))}
+ html[dir="ltr"] .hero-image:after{display:none}
+ html[dir="ltr"] .hero-content{display:block}
+ html[dir="ltr"] .hero-copy{width:100%;max-width:100%;text-align:left}
+ html[dir="ltr"] .hero h1{font-size:37px;line-height:1.3}
+ html[dir="ltr"] .hero-lead{font-size:15px;line-height:1.95}
+}
