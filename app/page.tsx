@@ -16,13 +16,31 @@ const services = [
   { number: "04", title: "السواتر والتجهيزات", description: "خيارات للخصوصية وتنسيق المساحات الخارجية حسب احتياجك.", image: "/gallery/project-10.webp", alt: "تجهيز خارجي" }
 ];
 
-const labels = [
-  "جلسة داخلية وديكورات", "بيت شعر", "مظلة بولي كربونيت", "تجهيز بيت شعر", "باب خشبي خارجي", "تشطيب جدران", "مظلة مدخل", "ديكور سقف داخلي",
-  "مظلات مواقف سيارات", "بوابة حديد", "مظلات سيارات", "تشطيب داخلي", "ديكور سقف", "مشروع بيت شعر", "جلسة داخلية", "مظلة خارجية",
-  "سقف زجاجي", "تشطيب بيت شعر", "مظلة سيارات", "باب خارجي", "باب مدخل", "مظلة موقف", "مظلة مدخل", "باب خارجي",
-  "تشطيب داخلي", "مظلة مدخل", "مظلات سيارات", "ديكور داخلي", "سقف ممر", "مظلة شبكية", "مظلة خارجية", "تشطيب داخلي"
+const customerProjects = [
+  { title: "مظلات سيارات ومواقف", category: "awnings", image: "/gallery/customer/01_Car_and_Outdoor_Awnings/01-01.jpg" },
+  { title: "مظلات خارجية", category: "awnings", image: "/gallery/customer/01_Car_and_Outdoor_Awnings/01-02.jpg" },
+  { title: "مظلات مواقف", category: "awnings", image: "/gallery/customer/01_Car_and_Outdoor_Awnings/01-03.jpg" },
+  { title: "مظلات سيارات", category: "awnings", image: "/gallery/customer/01_Car_and_Outdoor_Awnings/01-04.jpg" },
+  { title: "خيام وبيوت شعر", category: "tents", image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-01.jpg" },
+  { title: "تجهيزات بيت شعر", category: "tents", image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-02.jpg" },
+  { title: "ديكورات بيوت الشعر", category: "tents", image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-03.jpg" },
+  { title: "جلسات داخلية", category: "tents", image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-04.jpg" },
+  { title: "تفاصيل بيت شعر", category: "tents", image: "/gallery/customer/02_Tents_and_Beit_Al_Shaar_Interiors/02-05.jpg" },
+  { title: "برجولات وتغطيات", category: "pergolas", image: "/gallery/customer/03_Pergolas_and_Roofing/03-01.jpg" },
+  { title: "تشطيبات وأسقف داخلية", category: "interiors", image: "/gallery/customer/04_Interior_Finishing_and_Ceilings/04-01.jpg" },
+  { title: "ديكورات أسقف", category: "interiors", image: "/gallery/customer/04_Interior_Finishing_and_Ceilings/04-02.jpg" },
+  { title: "أبواب وتشطيبات خارجية", category: "doors", image: "/gallery/customer/05_Doors_and_Exterior_Finishing/05-01.jpg" },
+  { title: "أعمال أبواب خارجية", category: "doors", image: "/gallery/customer/05_Doors_and_Exterior_Finishing/05-02.jpg" },
+  { title: "تشطيبات ومداخل", category: "doors", image: "/gallery/customer/05_Doors_and_Exterior_Finishing/05-03.jpg" }
 ];
-const projects = labels.map((title, i) => ({title, image: `/gallery/project-${String(i + 1).padStart(2, "0")}.webp`}));
+const categories = [
+  { id: "all", label: "جميع الأعمال" },
+  { id: "awnings", label: "مظلات السيارات والخارجية" },
+  { id: "tents", label: "الخيام وبيوت الشعر" },
+  { id: "pergolas", label: "البرجولات والأسقف" },
+  { id: "interiors", label: "التشطيبات الداخلية" },
+  { id: "doors", label: "الأبواب والتشطيبات الخارجية" }
+];
 
 const heroSlides = [
   { image: "/gallery/project-19.webp", alt: "مظلة سيارات بتصميم أنيق" },
@@ -34,12 +52,14 @@ const heroSlides = [
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const visibleProjects = selectedCategory === "all" ? customerProjects : customerProjects.filter(project => project.category === selectedCategory);
   const moveSlide = useCallback((direction: number) => {
     setActiveSlide(current => (current + direction + heroSlides.length) % heroSlides.length);
   }, []);
   const movePhoto = useCallback((direction: number) => {
-    setActivePhoto(current => current === null ? null : (current + direction + projects.length) % projects.length);
-  }, []);
+    setActivePhoto(current => current === null ? null : (current + direction + visibleProjects.length) % visibleProjects.length);
+  }, [visibleProjects.length]);
   useEffect(() => {
     const timer = window.setInterval(() => setActiveSlide(current => (current + 1) % heroSlides.length), 5000);
     return () => window.clearInterval(timer);
@@ -134,10 +154,10 @@ export default function Home() {
           </div>
           <div className="showcase-banner">
             <div className="showcase-photos">
-              <button type="button" onClick={() => setActivePhoto(18)} aria-label="عرض المشروع"><Image src="/gallery/project-19.webp" alt="مظلة سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src="/gallery/project-10.webp" alt="سواتر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(1)} aria-label="عرض المشروع"><Image src="/gallery/project-02.webp" alt="خيمة" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(22)} aria-label="عرض المشروع"><Image src="/gallery/project-23.webp" alt="مظلة خارجية" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(0)} aria-label="عرض المشروع"><Image src={customerProjects[0].image} alt="مظلات سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(4)} aria-label="عرض المشروع"><Image src={customerProjects[4].image} alt="خيام وبيوت شعر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(1)} aria-label="عرض المشروع"><Image src={customerProjects[9].image} alt="برجولات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src={customerProjects[12].image} alt="أبواب وتشطيبات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
             </div>
             <div className="showcase-copy">
               <div className="eyebrow"><span /> أعمالنا</div>
@@ -146,8 +166,11 @@ export default function Home() {
               <a className="button button-gold" href="#all-projects">عرض جميع المشاريع <ArrowLeft size={17} /></a>
             </div>
           </div>
+          <div className="gallery-filters" role="group" aria-label="تصنيف الأعمال">
+            {categories.map(category => <button key={category.id} type="button" className={selectedCategory === category.id ? "active" : ""} onClick={() => { setSelectedCategory(category.id); setActivePhoto(null); }}>{category.label}</button>)}
+          </div>
           <div id="all-projects" className="project-grid">
-            {projects.map((p, i) => <article className="project-card" key={p.image}>
+            {visibleProjects.map((p, i) => <article className="project-card" key={p.image}>
               <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
                 <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
               </button>
@@ -163,8 +186,8 @@ export default function Home() {
           <button className="gallery-close" onClick={() => setActivePhoto(null)} aria-label="إغلاق المعرض"><X /></button>
           <button className="gallery-arrow gallery-arrow-prev" onClick={event => { event.stopPropagation(); movePhoto(1); }} aria-label="الصورة السابقة"><ChevronRight /></button>
           <div className="gallery-view" onClick={event => event.stopPropagation()}>
-            <div className="gallery-large-image"><Image src={projects[activePhoto].image} alt={projects[activePhoto].title} fill sizes="100vw" priority /></div>
-            <div className="gallery-caption">{projects[activePhoto].title} <span>{activePhoto + 1} / {projects.length}</span></div>
+            <div className="gallery-large-image"><Image src={visibleProjects[activePhoto].image} alt={visibleProjects[activePhoto].title} fill sizes="100vw" priority /></div>
+            <div className="gallery-caption">{projects[activePhoto].title} <span>{activePhoto + 1} / {visibleProjects.length}</span></div>
           </div>
           <button className="gallery-arrow gallery-arrow-next" onClick={event => { event.stopPropagation(); movePhoto(-1); }} aria-label="الصورة التالية"><ChevronLeft /></button>
         </div>
