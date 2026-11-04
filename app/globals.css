@@ -798,3 +798,84 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  .hero-copy{flex-basis:46%!important;width:46%!important}
  .hero h1{font-size:clamp(30px,4vw,42px)!important}
 }
+
+
+/* Desktop hero layout v2: fixed two-column grid, with text isolated from photo */
+@media(min-width:681px){
+ .hero{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0, 1.08fr) minmax(0, .92fr)!important;
+  align-items:stretch!important;
+  min-height:560px!important;
+  height:560px!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:#fff!important;
+ }
+ .hero-image{
+  position:absolute!important;
+  inset:0 auto 0 0!important;
+  width:54%!important;
+  height:100%!important;
+  opacity:1!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  z-index:0!important;
+ }
+ .hero-image:before,.hero-image:after{display:none!important;content:none!important}
+ .hero-content{
+  position:relative!important;
+  grid-column:2!important;
+  grid-row:1!important;
+  z-index:2!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:560px!important;
+  height:100%!important;
+  margin:0!important;
+  padding:52px clamp(28px,4vw,72px)!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#fff!important;
+ }
+ .hero-copy{
+  position:relative!important;
+  inset:auto!important;
+  float:none!important;
+  transform:none!important;
+  z-index:3!important;
+  width:100%!important;
+  max-width:560px!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  background:#fff!important;
+  box-sizing:border-box!important;
+  text-align:right!important;
+ }
+ html[dir="ltr"] .hero-image{
+  left:auto!important;
+  right:0!important;
+  width:54%!important;
+ }
+ html[dir="ltr"] .hero-content{
+  grid-column:1!important;
+  justify-content:center!important;
+  text-align:left!important;
+ }
+ html[dir="ltr"] .hero-copy{text-align:left!important}
+ .hero h1{max-width:100%!important;overflow-wrap:normal!important}
+ .hero-lead{max-width:100%!important}
+ .hero-slide-arrow,.hero-slide-dots{z-index:5!important}
+}
+@media(min-width:681px) and (max-width:900px){
+ .hero{height:520px!important;min-height:520px!important;grid-template-columns:1fr 1fr!important}
+ .hero-image{width:50%!important}
+ .hero-content{min-height:520px!important;padding:32px 24px!important}
+ .hero h1{font-size:clamp(30px,3.6vw,40px)!important}
+ .hero-lead{font-size:14px!important}
+}
