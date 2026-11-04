@@ -1,9 +1,19 @@
 import Link from "next/link";
-import { Menu, Phone, MessageCircle, MapPin } from "lucide-react";
+import { Menu, Phone, MapPin } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageProvider";
 
 const phone = "tel:+966531555682";
 const whatsapp = "https://wa.me/966531555682";
+
+function WhatsAppMark() {
+  return (
+    <svg className="whatsapp-brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" fill="#168B54" />
+      <path d="M10.1 8.9c.4-.9 1-1 1.7-1h1.1c.4 0 .8.2 1 .7l1.3 3.1c.2.5.1.9-.2 1.3l-1 1.2c-.3.3-.3.7-.1 1.1 1 1.7 2.4 3.1 4.1 4 .4.2.8.2 1.1-.2l1.3-1.5c.3-.4.8-.5 1.2-.3l2.9 1.4c.5.2.7.6.6 1.1l-.3 1.4c-.2.8-.9 1.4-1.7 1.6-1.5.4-3.6-.1-6.2-1.5-3.5-1.9-6.2-4.8-7.2-7.5-.8-2.2-.6-3.9.4-4.9Z" fill="#fff" />
+      <path d="M6.5 25.5 8 21.2a12 12 0 1 1 4.1 4.1l-5.6.2Z" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 function BrandLogo() {
   return (
@@ -35,7 +45,7 @@ export default function SiteHeader() {
           <Link href="/#contact">تواصل معنا</Link>
         </nav>
         <div className="header-contact">
-          <a className="header-whatsapp" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={16} /> تواصل عبر واتساب</a>
+          <a className="header-whatsapp" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppMark /> تواصل عبر واتساب</a>
           <a className="header-phone" href={phone} aria-label="اتصل بنا"><Phone size={16} /><b className="phone-number">+966 53 155 5682</b></a>
           <span className="header-city"><MapPin size={16} /> الرياض</span>
         </div>
