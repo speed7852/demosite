@@ -515,3 +515,40 @@ body{
  .contact-card b{font-size:14px!important}
  .footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:12px!important}
 }
+
+
+/* Accessibility pass: comfortably readable Arabic body copy */
+body{font-size:18px!important;line-height:1.85!important}
+p{font-size:16px}
+.hero-lead{font-size:19px!important;line-height:2!important}
+.section-heading>p,.about-copy>p,.contact-grid>div>p{font-size:17px!important;line-height:2.05!important}
+.service-copy p{font-size:15px!important;line-height:1.95!important}
+.service-copy h3{font-size:21px!important}
+.service-copy a,.text-link{font-size:15px!important}
+.trust-items b{font-size:16px!important}
+.trust-items small{font-size:13px!important}
+.about-copy li{font-size:16px!important;line-height:1.8}
+.project-meta span{font-size:13px!important}
+.project-meta h3{font-size:16px!important}
+.contact-card small{font-size:14px!important}
+.contact-card b{font-size:17px!important}
+.footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:15px!important;line-height:2!important}
+.copyright{font-size:13px!important}
+@media(max-width:680px){
+ body{font-size:16px!important;line-height:1.85!important}
+ p{font-size:15px}
+ .hero-lead{font-size:16px!important;line-height:2!important}
+ .section-heading>p,.about-copy>p,.contact-grid>div>p{font-size:15px!important;line-height:2!important}
+ .service-copy h3{font-size:16px!important}
+ .service-copy p{font-size:13px!important;line-height:1.9!important}
+ .service-copy a,.text-link{font-size:12px!important}
+ .trust-items b{font-size:13px!important}
+ .trust-items small{font-size:11px!important}
+ .about-copy li{font-size:14px!important}
+ .project-meta span{font-size:11px!important}
+ .project-meta h3{font-size:13px!important}
+ .contact-card small{font-size:12px!important}
+ .contact-card b{font-size:15px!important}
+ .footer p,.footer-grid>div:nth-child(2) a,.footer-grid>div:nth-child(3) a,.footer-grid>div:nth-child(3) span{font-size:13px!important}
+ .copyright{font-size:11px!important}
+}
