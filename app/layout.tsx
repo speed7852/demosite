@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ScrollReveal from "@/components/ScrollReveal";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "الجودة الخيام مظلات | مظلات وسواتر وخيام في الرياض",
@@ -21,11 +22,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ar" dir="rtl">
       <body>
+        <LanguageProvider>
         <ScrollReveal />
         <SiteHeader />
         {children}
         <SiteFooter />
         <WhatsAppFloat />
+        </LanguageProvider>
       </body>
     </html>
   );
