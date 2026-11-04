@@ -19,7 +19,7 @@ function WhatsAppMark() {
 function BrandLogo() {
   return (
     <span className="brand-logo" aria-hidden="true">
-      <Image src="/al-jawdah-logo.svg" alt="الجودة الخيام مظلات" width={1000} height={330} priority />
+      <Image src="/al-jawdah-logo.svg" alt="الجودة الخيام مظلات" width={1000} height={360} priority />
     </span>
   );
 }
