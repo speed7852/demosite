@@ -418,3 +418,12 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  html[dir="ltr"] .hero .hero-lead{font-size:15px!important;line-height:1.95!important}
  html[dir="ltr"] .hero .hero-actions{display:flex!important;flex-wrap:wrap!important;justify-content:flex-start!important}
 }
+
+
+/* Desktop slideshow controls must remain clickable above the hero content layer */
+@media(min-width:681px){
+ .hero-content{pointer-events:none}
+ .hero-copy{pointer-events:auto}
+ .hero-image{pointer-events:auto}
+ .hero-slide-arrow,.hero-slide-dots,.hero-slide-dots button{pointer-events:auto}
+}
