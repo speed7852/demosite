@@ -362,3 +362,59 @@ html[dir="ltr"] .hero-location{justify-content:flex-start}
  html[dir="ltr"] .hero h1{font-size:37px;line-height:1.3}
  html[dir="ltr"] .hero-lead{font-size:15px;line-height:1.95}
 }
+
+
+/* Mobile English hero: force a clean stacked layout, independent of desktop positioning */
+@media(max-width:680px){
+ html[dir="ltr"] .hero{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  min-height:0!important;
+  overflow:hidden;
+ }
+ html[dir="ltr"] .hero .hero-image{
+  position:relative!important;
+  inset:auto!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  display:block!important;
+  order:0!important;
+  flex:0 0 245px!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:245px!important;
+  margin:0!important;
+  background-position:center center!important;
+  background-size:cover!important;
+ }
+ html[dir="ltr"] .hero .hero-image:before{
+  background:linear-gradient(0deg,transparent 78%,rgba(255,255,255,.04))!important;
+ }
+ html[dir="ltr"] .hero .hero-image:after{display:none!important}
+ html[dir="ltr"] .hero .hero-content{
+  position:relative!important;
+  inset:auto!important;
+  order:1!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:28px 20px 37px!important;
+  transform:none!important;
+ }
+ html[dir="ltr"] .hero .hero-copy{
+  position:relative!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:left!important;
+ }
+ html[dir="ltr"] .hero .hero h1{font-size:37px!important;line-height:1.3!important}
+ html[dir="ltr"] .hero .hero-lead{font-size:15px!important;line-height:1.95!important}
+ html[dir="ltr"] .hero .hero-actions{display:flex!important;flex-wrap:wrap!important;justify-content:flex-start!important}
+}
