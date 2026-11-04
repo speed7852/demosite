@@ -331,13 +331,13 @@ html,body,main,
 }
 
 
-/* Language selector: anchored at the top-left of the header */
+/* Language selector stays in the header layout and never overlays contact details */
 .nav-wrap{position:relative}
-.language-switcher{position:absolute;left:0;top:7px;z-index:65;display:flex;align-items:center;gap:8px;padding:5px 10px;border:1px solid #e8edf2;border-radius:999px;background:#fff;color:#68798b;font-size:12px;font-weight:700;direction:ltr;box-shadow:0 2px 8px rgba(16,47,91,.04)}
+.language-switcher{position:static;order:4;flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-inline-start:8px;padding:5px 10px;border:1px solid #e8edf2;border-radius:999px;background:#fff;color:#68798b;font-size:12px;font-weight:700;direction:ltr;white-space:nowrap;box-shadow:0 2px 8px rgba(16,47,91,.04)}
 .language-switcher button{border:0;background:transparent;padding:2px 3px;color:#68798b;font:inherit;cursor:pointer}
 .language-switcher button.active{color:#a87916;font-weight:800}
 .language-switcher span{color:#d5dce4}
 @media(max-width:680px){
- .language-switcher{top:8px;left:8px;font-size:11px;padding:4px 7px;gap:5px}
- .mobile-menu{margin-right:auto;margin-left:104px}
+ .language-switcher{order:3;margin:0;font-size:11px;padding:4px 7px;gap:5px}
+ .mobile-menu{order:2;margin:0 auto 0 0}
 }
