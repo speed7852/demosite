@@ -156,8 +156,8 @@ export default function Home() {
             <div className="showcase-photos">
               <button type="button" onClick={() => setActivePhoto(0)} aria-label="عرض المشروع"><Image src={customerProjects[0].image} alt="مظلات سيارات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
               <button type="button" onClick={() => setActivePhoto(4)} aria-label="عرض المشروع"><Image src={customerProjects[4].image} alt="خيام وبيوت شعر" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(1)} aria-label="عرض المشروع"><Image src={customerProjects[9].image} alt="برجولات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
-              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src={customerProjects[12].image} alt="أبواب وتشطيبات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(9)} aria-label="عرض المشروع"><Image src={customerProjects[9].image} alt="برجولات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
+              <button type="button" onClick={() => setActivePhoto(12)} aria-label="عرض المشروع"><Image src={customerProjects[12].image} alt="أبواب وتشطيبات" fill sizes="(max-width: 700px) 24vw, 12vw" /></button>
             </div>
             <div className="showcase-copy">
               <div className="eyebrow"><span /> أعمالنا</div>
@@ -187,7 +187,7 @@ export default function Home() {
           <button className="gallery-arrow gallery-arrow-prev" onClick={event => { event.stopPropagation(); movePhoto(1); }} aria-label="الصورة السابقة"><ChevronRight /></button>
           <div className="gallery-view" onClick={event => event.stopPropagation()}>
             <div className="gallery-large-image"><Image src={visibleProjects[activePhoto].image} alt={visibleProjects[activePhoto].title} fill sizes="100vw" priority /></div>
-            <div className="gallery-caption">{projects[activePhoto].title} <span>{activePhoto + 1} / {visibleProjects.length}</span></div>
+            <div className="gallery-caption">{visibleProjects[activePhoto].title} <span>{activePhoto + 1} / {visibleProjects.length}</span></div>
           </div>
           <button className="gallery-arrow gallery-arrow-next" onClick={event => { event.stopPropagation(); movePhoto(-1); }} aria-label="الصورة التالية"><ChevronLeft /></button>
         </div>
