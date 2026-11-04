@@ -34,7 +34,7 @@ export default function SiteHeader() {
         </nav>
         <div className="header-contact">
           <a className="header-whatsapp" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={16} /> تواصل عبر واتساب</a>
-          <a className="header-phone" href={phone}><Phone size={16} /><b dir="ltr">+966 53 155 5682</b></a>
+          <a className="header-phone" href={phone} aria-label="اتصل بنا"><Phone size={16} /><b className="phone-number">+966 53 155 5682</b></a>
           <span className="header-city"><MapPin size={16} /> الرياض</span>
         </div>
         <details className="mobile-menu">
