@@ -31,6 +31,12 @@ function BrandLogo() {
 export default function SiteHeader() {
   return (
     <header className="site-header">
+      <div className="header-topbar">
+        <div className="container header-topbar-inner">
+          <span><MapPin size={14} /> الرياض، المملكة العربية السعودية</span>
+          <a href={phone}><Phone size={14} /> <b className="phone-number">+966 53 155 5682</b></a>
+        </div>
+      </div>
       <div className="container nav-wrap">
         <LanguageSwitcher />
         <Link href="/" className="brand" aria-label="الجودة الخيام مظلات - الرئيسية">
