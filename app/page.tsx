@@ -122,6 +122,7 @@ export default function Home() {
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [uploadedProjects, setUploadedProjects] = useState<{ title: string; category: string; image: string }[]>([]);
+  const [failedPhotoUrls, setFailedPhotoUrls] = useState<string[]>([]);
   useEffect(() => {
     let cancelled = false;
     const loadUploadedPhotos = async () => {
@@ -131,7 +132,7 @@ export default function Home() {
         const photos = await response.json() as { key: string; url: string }[];
         if (!cancelled) {
           setUploadedProjects(photos.map(photo => ({
-            title: "صورة من أعمالنا",
+            title: "من أعمالنا",
             category: "uploads",
             image: photo.url
           })));
@@ -266,10 +267,21 @@ export default function Home() {
           </div>
           <div id="all-projects" className="project-grid">
             {visibleProjects.map((p, i) => <article className="project-card" key={p.image}>
-              <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + p.title}>
-                <Image src={p.image} alt={p.title} fill sizes="(max-width: 700px) 50vw, 33vw" />
+              <button className="project-photo project-photo-button" type="button" onClick={() => setActivePhoto(i)} aria-label={'تكبير صورة ' + (p.title || "من أعمالنا")}>
+                {failedPhotoUrls.includes(p.image) ? (
+                  <span className="project-photo-fallback">تعذر تحميل الصورة</span>
+                ) : (
+                  <Image
+                    src={p.image}
+                    alt={p.title || "صورة من أعمال الجودة"}
+                    fill
+                    sizes="(max-width: 700px) 50vw, 33vw"
+                    loading="lazy"
+                    onError={() => setFailedPhotoUrls(current => current.includes(p.image) ? current : [...current, p.image])}
+                  />
+                )}
               </button>
-              <div className="project-meta"><h3>{p.title}</h3></div>
+              {p.category !== "uploads" && <div className="project-meta"><h3>{p.title}</h3></div>}
             </article>)}
           </div>
           <p className="gallery-disclaimer">اضغط على أي صورة لعرضها والتنقل بين الصور.</p>
