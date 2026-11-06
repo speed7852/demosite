@@ -106,7 +106,8 @@ const categories = [
   { id: "tents", label: "الخيام وبيوت الشعر" },
   { id: "pergolas", label: "البرجولات والأسقف" },
   { id: "interiors", label: "التشطيبات الداخلية" },
-  { id: "doors", label: "الأبواب والتشطيبات الخارجية" }
+  { id: "doors", label: "الأبواب والتشطيبات الخارجية" },
+  { id: "uploads", label: "الصور المضافة حديثاً" }
 ];
 
 const heroSlides = [
@@ -120,7 +121,34 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const visibleProjects = selectedCategory === "all" ? customerProjects : customerProjects.filter(project => project.category === selectedCategory);
+  const [uploadedProjects, setUploadedProjects] = useState<{ title: string; category: string; image: string }[]>([]);
+  useEffect(() => {
+    let cancelled = false;
+    const loadUploadedPhotos = async () => {
+      try {
+        const response = await fetch("https://aljawdah-photo-manager.ranaadeel105990.workers.dev/api/photos");
+        if (!response.ok) throw new Error("Could not load uploaded photos");
+        const photos = await response.json() as { key: string; url: string }[];
+        if (!cancelled) {
+          setUploadedProjects(photos.map(photo => ({
+            title: "صورة من أعمالنا",
+            category: "uploads",
+            image: photo.url
+          })));
+        }
+      } catch (error) {
+        console.error("Photo gallery loading failed:", error);
+      }
+    };
+    loadUploadedPhotos();
+    const refresh = window.setInterval(loadUploadedPhotos, 60000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(refresh);
+    };
+  }, []);
+  const allProjects = [...customerProjects, ...uploadedProjects];
+  const visibleProjects = selectedCategory === "all" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
   const moveSlide = useCallback((direction: number) => {
     setActiveSlide(current => (current + direction + heroSlides.length) % heroSlides.length);
   }, []);
